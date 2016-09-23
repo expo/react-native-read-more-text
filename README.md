@@ -1,6 +1,6 @@
 ## react-native-read-more
 
-![Example](https://raw.githubusercontent.com/exponentjs/react-native-read-more/master/images/example.gif)
+![Example](https://raw.githubusercontent.com/exponentjs/react-native-read-more/master/example.gif)
 
 ### Installation
 
