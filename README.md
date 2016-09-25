@@ -1,13 +1,13 @@
-## react-native-read-more
+## @exponent/react-native-read-more-text
 
 [Try it on Exponent](https://getexponent.com/@community/read-more-example)
 
-![Example](https://raw.githubusercontent.com/exponentjs/react-native-read-more/master/example.gif)
+![Example](https://raw.githubusercontent.com/exponentjs/react-native-read-more-text/master/example.gif)
 
 ### Installation
 
 ```
-npm i @exponent/react-native-read-more --save
+npm i @exponent/react-native-read-more-text --save
 ```
 
 ### Usage
