@@ -14,6 +14,7 @@ export default class ReadMore extends React.Component {
 
   async componentDidMount() {
     await nextFrameAsync();
+    await nextFrameAsync();
 
     // Get the height of the text with no restriction on number of lines
     const fullHeight = await measureHeightAsync(this._text);
