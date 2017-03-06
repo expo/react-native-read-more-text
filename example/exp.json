@@ -1,7 +1,7 @@
 {
-  "name": "read-more-text-example",
+  "name": "Read More Text Example",
   "description": "Demo of react-native-read-more-text",
-  "slug": "my-new-project",
+  "slug": "read-more-text-example",
   "privacy": "public",
   "sdkVersion": "14.0.0",
   "version": "1.0.0",
