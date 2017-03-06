@@ -24,9 +24,10 @@ export default class ReadMore extends React.Component {
     const limitedHeight = await measureHeightAsync(this._text);
 
     if (fullHeight > limitedHeight) {
-      this.setState({shouldShowReadMore: true});
+      this.setState({shouldShowReadMore: true}, () => {
+        this.props.onReady && this.props.onReady();
+      });
     }
-    if (this.props.onReady) this.props.onReady();
   }
 
   render() {

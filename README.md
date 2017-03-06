@@ -31,7 +31,7 @@ export class DescriptionCard extends React.Component {
               numberOfLines={3}
               renderTruncatedFooter={this._renderTruncatedFooter}
               renderRevealedFooter={this._renderRevealedFooter}
-              onReady={this._readyHandler}>
+              onReady={this._handleTextReady}>
               <RegularText style={styles.cardText}>
                 {text}
               </RegularText>
@@ -57,9 +57,9 @@ export class DescriptionCard extends React.Component {
       </RegularText>
     );
   }
-  
-  __readyHandler = () => {
-    ...
+
+  _handleTextReady = () => {
+    // ...
   }
 }
 ```
