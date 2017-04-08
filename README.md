@@ -32,9 +32,9 @@ export class DescriptionCard extends React.Component {
               renderTruncatedFooter={this._renderTruncatedFooter}
               renderRevealedFooter={this._renderRevealedFooter}
               onReady={this._handleTextReady}>
-              <RegularText style={styles.cardText}>
+              <Text style={styles.cardText}>
                 {text}
-              </RegularText>
+              </Text>
             </ReadMore>
           </View>
         </View>
@@ -44,17 +44,17 @@ export class DescriptionCard extends React.Component {
 
   _renderTruncatedFooter = (handlePress) => {
     return (
-      <RegularText style={{color: Colors.tintColor, marginTop: 5}} onPress={handlePress}>
+      <Text style={{color: Colors.tintColor, marginTop: 5}} onPress={handlePress}>
         Read more
-      </RegularText>
+      </Text>
     );
   }
 
   _renderRevealedFooter = (handlePress) => {
     return (
-      <RegularText style={{color: Colors.tintColor, marginTop: 5}} onPress={handlePress}>
+      <Text style={{color: Colors.tintColor, marginTop: 5}} onPress={handlePress}>
         Show less
-      </RegularText>
+      </Text>
     );
   }
 
