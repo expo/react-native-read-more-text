@@ -13,7 +13,12 @@ npm i @expo/react-native-read-more-text --save
 ### Usage
 
 ```javascript
-export class DescriptionCard extends React.Component {
+RegularText
+import React, { Component } from 'react';
+import ReadMore from '@expo/react-native-read-more-text';
+import { Text, View } from 'react-native';
+
+export class DescriptionCard extends Component {
   render() {
     let { text } = this.props;
 
