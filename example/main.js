@@ -14,6 +14,7 @@ class App extends React.Component {
         <View style={styles.card}>
           <ReadMore
             numberOfLines={2}
+            textStyle={{color: '#fff'}}
             onReady={this._handleTextReady}>
             <Text style={styles.cardText}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
