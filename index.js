@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
+  I18nManager
 } from 'react-native';
 
 export default class ReadMore extends React.Component {
@@ -44,9 +45,11 @@ export default class ReadMore extends React.Component {
       <View>
         <Text
           numberOfLines={measured && !showAllText ? numberOfLines : 0}
-          style={this.props.textStyle}
+          style={{writingDirection: I18nManager.isRTL? 'rtl':'ltr'}}
           ref={text => { this._text = text; }}>
-          {this.props.children}
+            <Text style={{textAlign: I18nManager.isRTL?'right':'left'}}>
+              {this.props.children}
+            </Text>
         </Text>
 
         {this._maybeRenderReadMore()}
@@ -75,7 +78,9 @@ export default class ReadMore extends React.Component {
 
       return (
         <Text style={styles.button} onPress={this._handlePressReadMore}>
-          Read more
+          <Text style={{textAlign: I18nManager.isRTL?'right':'left'}}>
+            {I18nManager.isRTL? 'المزيد': 'Read more'}
+          </Text>
         </Text>
       )
     } else if (shouldShowReadMore && showAllText) {
@@ -85,7 +90,9 @@ export default class ReadMore extends React.Component {
 
       return (
         <Text style={styles.button} onPress={this._handlePressReadLess}>
-          Hide
+          <Text style={{textAlign: I18nManager.isRTL?'right':'left'}}>
+            {I18nManager.isRTL?'اخفاء':'Hide'}
+          </Text>
         </Text>
       );
     }
@@ -108,5 +115,6 @@ const styles = StyleSheet.create({
   button: {
     color: '#888',
     marginTop: 5,
+    writingDirection: I18nManager.isRTL? 'rtl':'ltr'
   },
 });
