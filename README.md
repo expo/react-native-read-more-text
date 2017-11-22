@@ -1,13 +1,13 @@
-## @expo/react-native-read-more-text
+## react-native-read-more-text
 
-[Try it on Expo](https://exp.host/@community/read-more-example)
+[Try it on Expo](https://exp.host/@notbrent/read-more-text-example)
 
 ![Example](https://raw.githubusercontent.com/expo/react-native-read-more-text/master/example.gif)
 
 ### Installation
 
 ```
-npm i @expo/react-native-read-more-text --save
+npm i react-native-read-more-text --save
 ```
 
 ### Usage

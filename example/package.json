@@ -1,15 +1,13 @@
 {
-  "name": "MyNewProject",
-  "version": "0.0.0",
-  "description": "",
-  "author": "",
   "private": true,
-  "main": "main.js",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "postinstall": "rm -rf node_modules/react-native-read-more-text/example"
+  },
   "dependencies": {
-    "@expo/react-native-read-more-text": "../",
-    "@expo/vector-icons": "~4.0.0",
-    "expo": "^14.0.0",
-    "react": "~15.4.0",
-    "react-native": "https://github.com/exponent/react-native/archive/sdk-14.0.0.tar.gz"
+    "react-native-read-more-text": "../",
+    "expo": "^23.0.0",
+    "react": "16.0.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-23.0.0.tar.gz"
   }
 }

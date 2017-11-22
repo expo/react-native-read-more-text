@@ -1,13 +1,12 @@
-import Expo from 'expo';
 import React from 'react';
 import {
   StyleSheet,
   Text,
   View,
 } from 'react-native';
-import ReadMore from '@expo/react-native-read-more-text';
+import ReadMore from 'react-native-read-more-text';
 
-class App extends React.Component {
+export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -54,5 +53,3 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
 });
-
-Expo.registerRootComponent(App);

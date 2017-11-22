@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "Read More Text Example",
+    "description": "Demo of react-native-read-more-text",
+    "slug": "read-more-text-example",
+    "privacy": "public",
+    "sdkVersion": "23.0.0",
+    "version": "1.0.0",
+    "orientation": "portrait"
+  }
+}
