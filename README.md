@@ -2,7 +2,9 @@
 
 [Try it on Expo](https://exp.host/@notbrent/read-more-text-example)
 
-![Example](https://raw.githubusercontent.com/expo/react-native-read-more-text/master/example.gif)
+![Example](/expo/react-native-read-more-text/master/example.gif)
+
+FYI: this gif is taken from this App: [github.com/brentvatne/growler-prowler](https://github.com/brentvatne/growler-prowler)
 
 ### Installation
 
