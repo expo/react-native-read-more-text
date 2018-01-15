@@ -9,7 +9,11 @@ export default class ReadMore extends React.Component {
   state = {
     measured: false,
     shouldShowReadMore: false,
-    showAllText: this.props.expanded ? true : false,
+    showAllText: this.props.expanded,
+  }
+
+  static defaultProps = {
+    expanded: false
   }
 
   async componentDidMount() {
