@@ -6,14 +6,14 @@ import {
 } from 'react-native';
 
 export default class ReadMore extends React.Component {
+  static defaultProps = {
+    expanded: false
+  }
+
   state = {
     measured: false,
     shouldShowReadMore: false,
     showAllText: this.props.expanded,
-  }
-
-  static defaultProps = {
-    expanded: false
   }
 
   async componentDidMount() {
