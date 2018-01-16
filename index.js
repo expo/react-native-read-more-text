@@ -74,7 +74,7 @@ export default class ReadMore extends React.Component {
 
       return (
         <Text style={styles.button} onPress={this._handlePressReadMore}>
-          Read more
+          {this.props.readMoreText || 'Read more'}
         </Text>
       )
     } else if (shouldShowReadMore && showAllText) {
@@ -84,7 +84,7 @@ export default class ReadMore extends React.Component {
 
       return (
         <Text style={styles.button} onPress={this._handlePressReadLess}>
-          Hide
+          {this.props.hideText || 'Hide'}
         </Text>
       );
     }
