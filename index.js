@@ -37,7 +37,7 @@ export default class ReadMore extends React.Component {
       });
     }
 
-    this._text.style = {opacity: 0}
+    this._text.style = {opacity: 1}
   }
 
   render() {
