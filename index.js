@@ -36,6 +36,8 @@ export default class ReadMore extends React.Component {
         }
       });
     }
+
+    this._text.style = {opacity: 0}
   }
 
   render() {
@@ -54,6 +56,7 @@ export default class ReadMore extends React.Component {
           numberOfLines={measured && !showAllText ? numberOfLines : 0}
           ref={text => { this._text = text; }}>
           {this.props.children}
+          style={{opacity: 0}}
         </Text>
 
         {this._maybeRenderReadMore()}
