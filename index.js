@@ -13,7 +13,7 @@ export default class ReadMore extends React.Component {
   state = {
     measured: false,
     shouldShowReadMore: false,
-    showAllText: this.props.expanded,
+    showAllText: false,
   }
 
   async componentDidMount() {
@@ -30,6 +30,10 @@ export default class ReadMore extends React.Component {
     if (fullHeight > limitedHeight) {
       this.setState({shouldShowReadMore: true}, () => {
         this.props.onReady && this.props.onReady();
+
+        if (this.props.expanded) {
+          this._handlePressReadMore()
+        }
       });
     }
   }
