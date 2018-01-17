@@ -27,6 +27,8 @@ export default class ReadMore extends React.Component {
       this.setState({shouldShowReadMore: true}, () => {
         this.props.onReady && this.props.onReady();
       });
+    } else {
+      this.props.onReady && this.props.onReady();
     }
   }
 
