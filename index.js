@@ -6,6 +6,10 @@ import {
 } from 'react-native';
 
 export default class ReadMore extends React.Component {
+  static defaultProps = {
+    expanded: false
+  }
+
   state = {
     measured: false,
     shouldShowReadMore: false,
@@ -35,6 +39,10 @@ export default class ReadMore extends React.Component {
     if (fullHeight > limitedHeight) {
       this.setState({shouldShowReadMore: true}, () => {
         this.props.onReady && this.props.onReady();
+
+        if (this.props.expanded) {
+          this._handlePressReadMore()
+        }
       });
     } else {
       this.props.onReady && this.props.onReady();
@@ -59,7 +67,8 @@ export default class ReadMore extends React.Component {
       <View>
         <Text
           numberOfLines={measured && !showAllText ? numberOfLines : 0}
-          ref={text => { this._text = text; }}>
+          ref={text => { this._text = text; }}
+          style={{opacity: this.state.measured ? 1 : 0}}>
           {this.props.children}
         </Text>
 
