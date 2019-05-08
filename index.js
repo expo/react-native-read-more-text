@@ -100,7 +100,7 @@ export default class ReadMore extends React.Component {
 function measureHeightAsync(component) {
   return new Promise(resolve => {
     component.measure((x, y, w, h) => {
-      resolve(h);
+      resolve(Math.ceil(h));
     });
   });
 }
