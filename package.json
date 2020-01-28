@@ -1,6 +1,6 @@
 {
   "name": "react-native-read-more-text",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Add a 'Read More' and optionally a 'Read Less' button to text that exceeds a given number of lines",
   "repository": "https://github.com/expo/react-native-read-more-text",
   "main": "index.js",
