@@ -3,7 +3,6 @@ import { StyleSheet, Text, View } from "react-native";
 
 export default class ReadMore extends React.Component {
   state = {
-    measured: false,
     shouldShowReadMore: false,
     showAllText: false
   };
@@ -17,13 +16,7 @@ export default class ReadMore extends React.Component {
     }
 
     // Get the height of the text with no restriction on number of lines
-    const fullHeight = await measureHeightAsync(this._text);
-    this.setState({ measured: true });
-    await nextFrameAsync();
-
-    if (!this._isMounted) {
-      return;
-    }
+    const fullHeight = await measureHeightAsync(this._invisibleText);
 
     // Get the height of the text now that number of lines has been set
     const limitedHeight = await measureHeightAsync(this._text);
@@ -42,14 +35,23 @@ export default class ReadMore extends React.Component {
   }
 
   render() {
-    let { measured, showAllText } = this.state;
+    let { showAllText } = this.state;
 
     let { numberOfLines } = this.props;
 
     return (
       <View>
         <Text
-          numberOfLines={measured && !showAllText ? numberOfLines : 0}
+          style={styles.invisible}
+          ref={text => {
+            this._invisibleText = text;
+          }}
+        >
+          {this.props.children}
+        </Text>
+
+        <Text
+          numberOfLines={!showAllText ? numberOfLines : 0}
           ref={text => {
             this._text = text;
           }}
@@ -110,6 +112,10 @@ function nextFrameAsync() {
 }
 
 const styles = StyleSheet.create({
+  invisible: {
+    opacity: 0,
+    position: "absolute"
+  },
   button: {
     color: "#888",
     marginTop: 5
