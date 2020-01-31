@@ -1,18 +1,38 @@
 ## react-native-read-more-text
 
-[Try it on Expo](https://exp.host/@notbrent/read-more-text-example)
-
-![Example](https://raw.githubusercontent.com/expo/react-native-read-more-text/master/example.gif)
-
 ### Installation
 
 ```
 npm i react-native-read-more-text --save
 ```
 
+or with yarn
+
+```
+yarn add react-native-read-more-text
+```
+## Props
+
+| Prop | Type | Required | Note |
+|---|---|---|---|
+| `onReady` | `function` | no | callback function to know when the component is ready
+| `children` | `string` | yes | String to render on read more component
+| `renderTruncatedFooter` | `function` | no | function that will replace the `Read more` label
+| `renderRevealedFooter` | `function` | no | function that will replace the `Hide` label
+
+
+[Try it on Expo](https://exp.host/@notbrent/read-more-text-example)
+
+![Example](https://raw.githubusercontent.com/expo/react-native-read-more-text/master/example.gif)
+
 ### Usage
 
 ```javascript
+
+import * as React from 'react';
+import { View, Text } from 'react-native';
+import ReadMore from 'react-native-read-more-text';
+
 export class DescriptionCard extends React.Component {
   render() {
     let { text } = this.props;
@@ -20,9 +40,9 @@ export class DescriptionCard extends React.Component {
     return (
       <View>
         <View style={styles.cardLabel}>
-          <BoldText style={styles.cardLabelText}>
+          <Text style={styles.cardLabelText}>
             Description
-          </BoldText>
+          </Text>
         </View>
 
         <View style={styles.card}>
@@ -32,9 +52,9 @@ export class DescriptionCard extends React.Component {
               renderTruncatedFooter={this._renderTruncatedFooter}
               renderRevealedFooter={this._renderRevealedFooter}
               onReady={this._handleTextReady}>
-              <RegularText style={styles.cardText}>
+              <Text style={styles.cardText}>
                 {text}
-              </RegularText>
+              </Text>
             </ReadMore>
           </View>
         </View>
@@ -44,17 +64,17 @@ export class DescriptionCard extends React.Component {
 
   _renderTruncatedFooter = (handlePress) => {
     return (
-      <RegularText style={{color: Colors.tintColor, marginTop: 5}} onPress={handlePress}>
+      <Text style={{color: Colors.tintColor, marginTop: 5}} onPress={handlePress}>
         Read more
-      </RegularText>
+      </Text>
     );
   }
 
   _renderRevealedFooter = (handlePress) => {
     return (
-      <RegularText style={{color: Colors.tintColor, marginTop: 5}} onPress={handlePress}>
+      <Text style={{color: Colors.tintColor, marginTop: 5}} onPress={handlePress}>
         Show less
-      </RegularText>
+      </Text>
     );
   }
 
