@@ -5,9 +5,9 @@
     "postinstall": "rm -rf node_modules/react-native-read-more-text/example"
   },
   "dependencies": {
-    "react-native-read-more-text": "../",
-    "expo": "^23.0.0",
-    "react": "16.0.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-23.0.0.tar.gz"
+    "expo": "^36.0.0",
+    "react": "16.9.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.1.tar.gz",
+    "react-native-read-more-text": "../"
   }
 }
