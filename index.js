@@ -50,6 +50,7 @@ export default class ReadMore extends React.Component {
       <View>
         <Text
           numberOfLines={measured && !showAllText ? numberOfLines : 0}
+          style={this.props.textStyle}
           ref={text => {
             this._text = text;
           }}
