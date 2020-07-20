@@ -1,11 +1,15 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableWithoutFeedback } from "react-native";
 
 export default class ReadMore extends React.Component {
+  static defaultProps = {
+    textClickable: false,
+  };
+
   state = {
     measured: false,
     shouldShowReadMore: false,
-    showAllText: false
+    showAllText: false,
   };
 
   async componentDidMount() {
@@ -47,21 +51,30 @@ export default class ReadMore extends React.Component {
     let { numberOfLines } = this.props;
 
     return (
-      <View>
-        <Text
-          numberOfLines={measured && !showAllText ? numberOfLines : 0}
-          style={this.props.textStyle}
-          ref={text => {
-            this._text = text;
-          }}
-        >
-          {this.props.children}
-        </Text>
+      <TouchableWithoutFeedback
+        disabled={!this.props.textClickable}
+        onPress={this._handleSwitch}
+      >
+        <View>
+          <Text
+            numberOfLines={measured && !showAllText ? numberOfLines : 0}
+            style={this.props.textStyle}
+            ref={(text) => {
+              this._text = text;
+            }}
+          >
+            {this.props.children}
+          </Text>
 
-        {this._maybeRenderReadMore()}
-      </View>
+          {this._maybeRenderReadMore()}
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
+
+  _handleSwitch = () => {
+    this.setState({ showAllText: !this.state.showAllText });
+  };
 
   _handlePressReadMore = () => {
     this.setState({ showAllText: true });
@@ -99,7 +112,7 @@ export default class ReadMore extends React.Component {
 }
 
 function measureHeightAsync(component) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     component.measure((x, y, w, h) => {
       resolve(h);
     });
@@ -107,12 +120,12 @@ function measureHeightAsync(component) {
 }
 
 function nextFrameAsync() {
-  return new Promise(resolve => requestAnimationFrame(() => resolve()));
+  return new Promise((resolve) => requestAnimationFrame(() => resolve()));
 }
 
 const styles = StyleSheet.create({
   button: {
     color: "#888",
-    marginTop: 5
-  }
+    marginTop: 5,
+  },
 });
