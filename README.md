@@ -11,15 +11,16 @@ or with yarn
 ```
 yarn add react-native-read-more-text
 ```
+
 ## Props
 
-| Prop | Type | Required | Note |
-|---|---|---|---|
-| `onReady` | `function` | no | callback function to know when the component is ready
-| `children` | `string` | yes | String to render on read more component
-| `renderTruncatedFooter` | `function` | no | function that will replace the `Read more` label
-| `renderRevealedFooter` | `function` | no | function that will replace the `Hide` label
-
+| Prop                    | Type       | Required | Note                                                                                    |
+| ----------------------- | ---------- | -------- | --------------------------------------------------------------------------------------- |
+| `onReady`               | `function` | no       | callback function to know when the component is ready                                   |
+| `children`              | `string`   | yes      | String to render on read more component                                                 |
+| `renderTruncatedFooter` | `function` | no       | function that will replace the `Read more` label                                        |
+| `renderRevealedFooter`  | `function` | no       | function that will replace the `Hide` label                                             |
+| `textClickable`         | `bool`     | no       | if true, tapping anywhere on the text will trigger the expension of text and vice versa |
 
 [Try it on Expo](https://exp.host/@notbrent/read-more-text-example)
 
@@ -28,10 +29,9 @@ yarn add react-native-read-more-text
 ### Usage
 
 ```javascript
-
-import * as React from 'react';
-import { View, Text } from 'react-native';
-import ReadMore from 'react-native-read-more-text';
+import * as React from "react";
+import { View, Text } from "react-native";
+import ReadMore from "react-native-read-more-text";
 
 export class DescriptionCard extends React.Component {
   render() {
@@ -40,9 +40,7 @@ export class DescriptionCard extends React.Component {
     return (
       <View>
         <View style={styles.cardLabel}>
-          <Text style={styles.cardLabelText}>
-            Description
-          </Text>
+          <Text style={styles.cardLabelText}>Description</Text>
         </View>
 
         <View style={styles.card}>
@@ -51,10 +49,9 @@ export class DescriptionCard extends React.Component {
               numberOfLines={3}
               renderTruncatedFooter={this._renderTruncatedFooter}
               renderRevealedFooter={this._renderRevealedFooter}
-              onReady={this._handleTextReady}>
-              <Text style={styles.cardText}>
-                {text}
-              </Text>
+              onReady={this._handleTextReady}
+            >
+              <Text style={styles.cardText}>{text}</Text>
             </ReadMore>
           </View>
         </View>
@@ -64,22 +61,28 @@ export class DescriptionCard extends React.Component {
 
   _renderTruncatedFooter = (handlePress) => {
     return (
-      <Text style={{color: Colors.tintColor, marginTop: 5}} onPress={handlePress}>
+      <Text
+        style={{ color: Colors.tintColor, marginTop: 5 }}
+        onPress={handlePress}
+      >
         Read more
       </Text>
     );
-  }
+  };
 
   _renderRevealedFooter = (handlePress) => {
     return (
-      <Text style={{color: Colors.tintColor, marginTop: 5}} onPress={handlePress}>
+      <Text
+        style={{ color: Colors.tintColor, marginTop: 5 }}
+        onPress={handlePress}
+      >
         Show less
       </Text>
     );
-  }
+  };
 
   _handleTextReady = () => {
     // ...
-  }
+  };
 }
 ```
