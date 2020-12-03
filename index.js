@@ -1,12 +1,17 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+const initialState = {
+  measured: false,
+  shouldShowReadMore: false,
+  showAllText: false
+};
 export default class ReadMore extends React.Component {
-  state = {
-    measured: false,
-    shouldShowReadMore: false,
-    showAllText: false
-  };
+  state = {...initialState};
+
+  resetState() {
+    this.setState({...initialState});
+  }
 
   async componentDidMount() {
     this._isMounted = true;
@@ -16,6 +21,22 @@ export default class ReadMore extends React.Component {
       return;
     }
 
+    this.compareTextHeightMeasurements()
+  }
+  
+  async componentDidUpdate(prevProps) {
+    if (this.props.children !== prevProps.children) {
+      this.resetState();
+      await nextFrameAsync();
+      this.compareTextHeightMeasurements();
+    }
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
+  
+  async compareTextHeightMeasurements() {
     // Get the height of the text with no restriction on number of lines
     const fullHeight = await measureHeightAsync(this._text);
     this.setState({ measured: true });
@@ -35,10 +56,6 @@ export default class ReadMore extends React.Component {
     } else {
       this.props.onReady && this.props.onReady();
     }
-  }
-
-  componentWillUnmount() {
-    this._isMounted = false;
   }
 
   render() {
