@@ -54,6 +54,7 @@ export default class ReadMore extends React.Component {
           ref={text => {
             this._text = text;
           }}
+          allowFontScaling={this.props.allowFontScaling}
         >
           {this.props.children}
         </Text>
